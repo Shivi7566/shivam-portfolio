@@ -10,18 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F6F5FC;
-    --panel: #FFFFFF;
-    --ink: #1A1B3A;
-    --ink-soft: #55577A;
-    --navy: #4338CA;
-    --navy-deep: #2D2A7A;
+    --bg: #08090D;
+    --panel: #15161F;
+    --ink: #F3F3F6;
+    --ink-soft: #A8AAB8;
+    --navy: #8B8FF5;
+    --navy-deep: #4338CA;
     --gold: #F5A524;
-    --gold-soft: #FCE3B0;
-    --teal: #0EA5A8;
-    --coral: #F0567A;
-    --line: #E2DFF5;
-    --line-strong: #C7C2E8;
+    --gold-soft: #7A5A1E;
+    --teal: #2DD4CF;
+    --coral: #FF7A93;
+    --line: rgba(255, 255, 255, 0.12);
+    --line-strong: rgba(255, 255, 255, 0.22);
   }
 
   * { box-sizing: border-box; }
@@ -38,60 +38,20 @@
 
   body {
     margin: 0;
-    background: var(--bg);
+    background-color: var(--bg);
     background-image:
-      radial-gradient(circle at 15% 20%, rgba(67, 56, 202, 0.08), transparent 40%),
-      radial-gradient(circle at 85% 15%, rgba(14, 165, 168, 0.10), transparent 40%),
-      radial-gradient(circle at 75% 85%, rgba(240, 86, 122, 0.08), transparent 40%),
-      radial-gradient(circle at 20% 90%, rgba(245, 165, 36, 0.10), transparent 40%);
-    background-attachment: fixed;
+      radial-gradient(560px circle at 6% 4%, rgba(124, 111, 240, 0.22), transparent 65%),
+      radial-gradient(620px circle at 96% 98%, rgba(45, 212, 207, 0.16), transparent 65%),
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: auto, auto, 64px 64px, 64px 64px;
+    background-attachment: fixed, fixed, fixed, fixed;
+    background-repeat: no-repeat, no-repeat, repeat, repeat;
     color: var(--ink);
     font-family: 'IBM Plex Sans', -apple-system, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    position: relative;
     overflow-x: hidden;
-  }
-
-  /* ---------- Floating bubble background ---------- */
-
-  .bubble-field {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .bubble {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(1px);
-    opacity: 0.55;
-    animation: drift linear infinite;
-  }
-
-  .bubble.b1 { width: 130px; height: 130px; left: -30px; top: 8%; background: radial-gradient(circle at 30% 30%, var(--gold-soft), var(--gold) 70%); animation-duration: 26s; opacity: 0.5; }
-  .bubble.b2 { width: 70px; height: 70px; left: 80%; top: 5%; background: radial-gradient(circle at 30% 30%, #6FE3E0, var(--teal) 70%); animation-duration: 18s; animation-delay: -4s; opacity: 0.55; }
-  .bubble.b3 { width: 44px; height: 44px; left: 20%; top: 40%; background: radial-gradient(circle at 30% 30%, #8B7EF0, var(--navy) 70%); animation-duration: 15s; animation-delay: -8s; opacity: 0.45; }
-  .bubble.b4 { width: 160px; height: 160px; left: 64%; top: 58%; background: radial-gradient(circle at 30% 30%, #F8D48C, var(--gold) 70%); animation-duration: 32s; animation-delay: -12s; opacity: 0.4; }
-  .bubble.b5 { width: 60px; height: 60px; left: 8%; top: 76%; background: radial-gradient(circle at 30% 30%, #F8A9BE, var(--coral) 70%); animation-duration: 20s; animation-delay: -6s; opacity: 0.5; }
-  .bubble.b6 { width: 95px; height: 95px; left: 86%; top: 80%; background: radial-gradient(circle at 30% 30%, #6FE3E0, var(--teal) 70%); animation-duration: 24s; animation-delay: -16s; opacity: 0.45; }
-  .bubble.b7 { width: 36px; height: 36px; left: 42%; top: 14%; background: radial-gradient(circle at 30% 30%, #8B7EF0, var(--navy) 70%); animation-duration: 14s; animation-delay: -2s; opacity: 0.4; }
-  .bubble.b8 { width: 110px; height: 110px; left: 32%; top: 90%; background: radial-gradient(circle at 30% 30%, var(--gold-soft), var(--gold) 70%); animation-duration: 28s; animation-delay: -20s; opacity: 0.4; }
-  .bubble.b9 { width: 22px; height: 22px; left: 55%; top: 30%; background: radial-gradient(circle at 30% 30%, #F8A9BE, var(--coral) 70%); animation-duration: 12s; animation-delay: -9s; opacity: 0.5; }
-  .bubble.b10 { width: 50px; height: 50px; left: 92%; top: 45%; background: radial-gradient(circle at 30% 30%, #8B7EF0, var(--navy) 70%); animation-duration: 19s; animation-delay: -3s; opacity: 0.4; }
-
-  @keyframes drift {
-    0%   { transform: translate(0, 0) scale(1); }
-    25%  { transform: translate(18px, -26px) scale(1.08); }
-    50%  { transform: translate(-14px, 20px) scale(0.94); }
-    75%  { transform: translate(16px, 28px) scale(1.05); }
-    100% { transform: translate(0, 0) scale(1); }
-  }
-
-  @media (max-width: 700px) {
-    .bubble.b4, .bubble.b1 { width: 90px; height: 90px; }
   }
 
   /* ---------- Scroll reveal ---------- */
@@ -284,6 +244,74 @@
     margin-top: 32px;
   }
 
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.94rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .cta-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+  .cta-btn.primary {
+    background: var(--navy-deep);
+    color: #FFFFFF;
+    box-shadow: 0 0 0 1px rgba(139, 143, 245, 0.4);
+  }
+
+  .cta-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(124, 111, 240, 0.35);
+  }
+
+  .cta-btn.outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line-strong);
+  }
+
+  .cta-btn.outline:hover {
+    transform: translateY(-2px);
+    border-color: var(--navy);
+    background: rgba(139, 143, 245, 0.08);
+  }
+
+  .subscribe-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    padding: 9px 18px;
+    background: #FF0000;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .subscribe-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(255, 0, 0, 0.3);
+  }
+
+  .subscribe-btn svg { width: 14px; height: 14px; }
+
   .credential-chip {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.76rem;
@@ -393,7 +421,7 @@
 
   .panel:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(20, 32, 66, 0.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
   }
 
   .panel-mark {
@@ -462,7 +490,7 @@
     transition: background 0.15s ease, transform 0.2s ease;
   }
 
-  .repo-row:hover { background: #FAFAF9; transform: translateX(6px); }
+  .repo-row:hover { background: #1C1E2A; transform: translateX(6px); }
 
   .repo-row:nth-child(1) { --accent: #4338CA; }
   .repo-row:nth-child(2) { --accent: #F5A524; }
@@ -502,7 +530,7 @@
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: var(--navy);
-    background: #EDF0F7;
+    background: rgba(139, 143, 245, 0.12);
     padding: 3px 8px;
     border-radius: 3px;
   }
@@ -533,19 +561,6 @@
 </head>
 <body>
 
-<div class="bubble-field" aria-hidden="true">
-  <span class="bubble b1"></span>
-  <span class="bubble b2"></span>
-  <span class="bubble b3"></span>
-  <span class="bubble b4"></span>
-  <span class="bubble b5"></span>
-  <span class="bubble b6"></span>
-  <span class="bubble b7"></span>
-  <span class="bubble b8"></span>
-  <span class="bubble b9"></span>
-  <span class="bubble b10"></span>
-</div>
-
 <nav class="rail" aria-label="Section navigation">
   <a href="#hero" class="active"><span class="dot"></span><span class="label">Welcome</span></a>
   <a href="#expertise"><span class="dot"></span><span class="label">Expertise</span></a>
@@ -563,6 +578,20 @@
       <span class="credential-chip mono">SC-300 · Identity &amp; Access Administrator</span>
       <span class="credential-chip mono">SC-500 · Cloud &amp; AI Security</span>
       <span class="credential-chip mono">7.5+ years</span>
+    </div>
+    <div class="cta-row">
+      <a class="cta-btn primary" href="https://linkedin.com/in/shivamtiwari78" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        LinkedIn
+      </a>
+      <a class="cta-btn outline" href="https://shivi7566.github.io" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18" stroke="currentColor" stroke-width="1.6"/></svg>
+        My Portfolio
+      </a>
+      <a class="cta-btn outline" href="tel:+917566955303">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C11.6 21 3 12.4 3 2c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        Call
+      </a>
     </div>
   </div>
   <div class="hero-photo-wrap reveal">
@@ -619,6 +648,12 @@
       <h3>Cloud Knowledge</h3>
       <p>My YouTube channel: hands-on tutorials on Microsoft Entra ID, Conditional Access, App Registrations, Graph API automation, AWS IAM, and Oracle Cloud identity, built from real client work.</p>
       <a class="panel-link" href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noopener">youtube.com/@Cloud-Knowledge</a>
+      <div>
+        <a class="subscribe-btn" href="https://www.youtube.com/@Cloud-Knowledge?sub_confirmation=1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" fill="#FFFFFF"/></svg>
+          Subscribe
+        </a>
+      </div>
     </div>
     <div class="panel">
       <div class="panel-mark" style="background: var(--teal);" aria-hidden="true">
@@ -655,15 +690,6 @@
         <div class="repo-path">github.com/Shivi7566/entra-powershell-toolkit</div>
         <p class="repo-desc">PowerShell automation for Entra ID covering bulk provisioning, licensing, PIM, and device management, each script paired with a full written explanation.</p>
         <div class="repo-topics"><span>powershell</span><span>automation</span><span>pim</span><span>iam</span></div>
-      </div>
-      <div class="repo-visit">View →</div>
-    </a>
-    <a class="repo-row" href="https://shivi7566.github.io" target="_blank" rel="noopener">
-      <div class="repo-main">
-        <div class="repo-name">My Portfolio</div>
-        <div class="repo-path">shivi7566.github.io</div>
-        <p class="repo-desc">My personal portfolio site, hosted on GitHub Pages.</p>
-        <div class="repo-topics"><span>portfolio</span></div>
       </div>
       <div class="repo-visit">View →</div>
     </a>

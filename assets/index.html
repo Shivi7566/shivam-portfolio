@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivam Tiwari | Senior IAM Engineer</title>
+<meta name="description" content="Shivam Tiwari, Senior IAM Engineer specializing in Microsoft Entra ID and Okta. 7.5+ years architecting enterprise identity solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3F4F7;
+    --panel: #FFFFFF;
+    --ink: #12182B;
+    --ink-soft: #4A5266;
+    --navy: #1F2E5C;
+    --navy-deep: #142042;
+    --gold: #C9A227;
+    --gold-soft: #E7D6A0;
+    --line: #D7DAE2;
+    --line-strong: #B7BCC9;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  a { color: inherit; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 3px;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* ---------- Wayfinding rail ---------- */
+
+  .rail {
+    position: fixed;
+    left: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    z-index: 50;
+  }
+
+  .rail a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .rail .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--line-strong);
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .rail a:hover .dot,
+  .rail a.active .dot {
+    background: var(--gold);
+    transform: scale(1.3);
+  }
+
+  .rail .label {
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    transition: max-width 0.25s ease, opacity 0.25s ease;
+  }
+
+  .rail a:hover .label {
+    max-width: 140px;
+    opacity: 1;
+  }
+
+  @media (max-width: 900px) {
+    .rail { display: none; }
+  }
+
+  /* ---------- Layout shell ---------- */
+
+  .section {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 120px 32px;
+  }
+
+  @media (max-width: 900px) {
+    .section { padding: 80px 24px; }
+  }
+
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 100px 32px 60px;
+    gap: 56px;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      flex-direction: column-reverse;
+      min-height: unset;
+      padding-top: 60px;
+      text-align: left;
+    }
+  }
+
+  .hero-text {
+    flex: 1.2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--gold);
+    background: var(--navy-deep);
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-role {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--navy);
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
+  .hero-note {
+    max-width: 46ch;
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    margin-top: 24px;
+  }
+
+  .credential-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+  }
+
+  .credential-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    border: 1px solid var(--line-strong);
+    background: var(--panel);
+    padding: 6px 11px;
+    border-radius: 3px;
+    color: var(--ink-soft);
+  }
+
+  .hero-photo-wrap {
+    flex: 0 0 auto;
+    width: 260px;
+  }
+
+  @media (max-width: 900px) {
+    .hero-photo-wrap { width: 190px; margin: 0 auto; }
+  }
+
+  .hero-photo-frame {
+    position: relative;
+    border: 1px solid var(--line-strong);
+    padding: 10px;
+    background: var(--panel);
+  }
+
+  .hero-photo-frame img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    filter: grayscale(15%);
+  }
+
+  .hero-photo-tag {
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  /* ---------- Expertise ---------- */
+
+  .expertise-intro {
+    max-width: 62ch;
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    margin-bottom: 56px;
+  }
+
+  .directory {
+    border-top: 1px solid var(--line);
+  }
+
+  .directory-row {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  @media (max-width: 700px) {
+    .directory-row {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+
+  .directory-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--navy);
+  }
+
+  .directory-items {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+  }
+
+  /* ---------- Split panels (YouTube / Website) ---------- */
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 700px) {
+    .split { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--panel);
+    padding: 44px 36px;
+  }
+
+  .panel-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--navy-deep);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .panel h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .panel p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin: 0 0 20px;
+  }
+
+  .panel-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--navy);
+    border-bottom: 1px solid var(--navy);
+    padding-bottom: 2px;
+  }
+
+  .panel-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ---------- GitHub directory listing ---------- */
+
+  .repo-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .repo-row {
+    display: flex;
+    gap: 24px;
+    padding: 26px 20px 26px 20px;
+    border-bottom: 1px solid var(--line);
+    border-left: 4px solid var(--accent, var(--navy));
+    background: var(--panel);
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+
+  .repo-row:hover { background: #FAFAF9; }
+
+  .repo-row:nth-child(1) { --accent: #1F2E5C; }
+  .repo-row:nth-child(2) { --accent: #C9A227; }
+  .repo-row:nth-child(3) { --accent: #5B6472; }
+
+  .repo-main { flex: 1; }
+
+  .repo-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.02rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .repo-desc {
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+    margin-top: 6px;
+    max-width: 60ch;
+  }
+
+  .repo-topics {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .repo-topics span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--navy);
+    background: #EDF0F7;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .repo-visit {
+    align-self: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .repo-row { flex-direction: column; }
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    text-align: center;
+    padding: 60px 24px 80px;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+
+  footer a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+</style>
+</head>
+<body>
+
+<nav class="rail" aria-label="Section navigation">
+  <a href="#hero" class="active"><span class="dot"></span><span class="label">Welcome</span></a>
+  <a href="#expertise"><span class="dot"></span><span class="label">Expertise</span></a>
+  <a href="#youtube-website"><span class="dot"></span><span class="label">Channel &amp; Site</span></a>
+  <a href="#github"><span class="dot"></span><span class="label">Repositories</span></a>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow mono">Identity &amp; Access Management</span>
+    <h1 class="hero-name">Hi, I'm Shivam Tiwari.</h1>
+    <p class="hero-role">Senior IAM Engineer, Microsoft Entra ID &amp; Okta</p>
+    <p class="hero-note">I design and run enterprise identity systems for a living: provisioning, governance, SSO, Conditional Access, and hybrid sync, currently across three client environments at DXC Technology. This page is where that work, my writing, and my videos live in one place.</p>
+    <div class="credential-row">
+      <span class="credential-chip mono">SC-300 · Identity &amp; Access Administrator</span>
+      <span class="credential-chip mono">SC-500 · Cloud &amp; AI Security</span>
+      <span class="credential-chip mono">7.5+ years</span>
+    </div>
+  </div>
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-frame">
+      <img src="assets/shivam-tiwari.jpg" alt="Portrait of Shivam Tiwari">
+      <span class="hero-photo-tag mono">Damoh, MP · India</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="expertise">
+  <p class="kicker mono">// EXPERTISE</p>
+  <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 24px;">Enterprise identity, end to end.</h2>
+  <p class="expertise-intro">7.5+ years architecting and managing identity solutions across Microsoft Entra ID, Okta, AWS, and Oracle Cloud, from provisioning and access governance to hybrid identity synchronization and compliance audits aligned to GDPR, HIPAA, and PCI&nbsp;DSS. I currently lead IAM delivery across three client accounts at DXC Technology, two on Entra ID and one on Okta.</p>
+
+  <div class="directory">
+    <div class="directory-row">
+      <div class="directory-label">Identity Platforms</div>
+      <div class="directory-items">Microsoft Entra ID, Okta, AWS IAM, Oracle Cloud IAM</div>
+    </div>
+    <div class="directory-row">
+      <div class="directory-label">Governance &amp; Lifecycle</div>
+      <div class="directory-items">Joiner-Mover-Leaver automation, Lifecycle Workflows, Access Reviews, Access Packages, Entitlement Management, PIM</div>
+    </div>
+    <div class="directory-row">
+      <div class="directory-label">Authentication &amp; Access</div>
+      <div class="directory-items">SAML, OIDC, OAuth, SSO, MFA, Conditional Access, Administrative Units, Risky User &amp; Sign-in Remediation</div>
+    </div>
+    <div class="directory-row">
+      <div class="directory-label">Provisioning</div>
+      <div class="directory-items">App Registrations, Enterprise Applications, API Permissions, SCIM Provisioning, Gallery &amp; Non-Gallery App Onboarding</div>
+    </div>
+    <div class="directory-row">
+      <div class="directory-label">Hybrid Identity</div>
+      <div class="directory-items">Entra Connect, Cloud Sync, Password Hash Sync, Pass-Through Authentication, Password Writeback, SSPR</div>
+    </div>
+    <div class="directory-row">
+      <div class="directory-label">Security &amp; Compliance</div>
+      <div class="directory-items">GDPR, HIPAA, PCI DSS, access audits, Microsoft Defender, security &amp; compliance management</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="youtube-website" style="padding-top: 0;">
+  <p class="kicker mono">// CHANNEL &amp; SITE</p>
+  <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 36px;">Where I share what I know.</h2>
+
+  <div class="split">
+    <div class="panel">
+      <div class="panel-mark">▶</div>
+      <h3>Cloud Knowledge</h3>
+      <p>My YouTube channel: hands-on tutorials on Microsoft Entra ID, Conditional Access, App Registrations, Graph API automation, AWS IAM, and Oracle Cloud identity, built from real client work.</p>
+      <a class="panel-link" href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noopener">youtube.com/@Cloud-Knowledge</a>
+    </div>
+    <div class="panel">
+      <div class="panel-mark">◆</div>
+      <h3>cloudknowledge.in</h3>
+      <p>My website: written guides and troubleshooting notes on Entra ID, Azure, AWS, and cloud security, for admins and engineers working the same problems I do.</p>
+      <a class="panel-link" href="https://cloudknowledge.in" target="_blank" rel="noopener">cloudknowledge.in</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="github">
+  <p class="kicker mono">// REPOSITORIES</p>
+  <h2 style="font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 36px;">What I'm building in the open.</h2>
+
+  <div class="repo-list">
+    <a class="repo-row" href="https://github.com/Shivi7566/graph-api-toolkit" target="_blank" rel="noopener">
+      <div class="repo-main">
+        <div class="repo-name">graph-api-toolkit</div>
+        <p class="repo-desc">A complete reference of Microsoft Entra ID's Graph API, mapping every admin center category to its actual v1.0 and beta REST endpoints, with permissions and real gotchas.</p>
+        <div class="repo-topics"><span>graph-api</span><span>entra-id</span><span>rest</span><span>reference</span></div>
+      </div>
+      <div class="repo-visit">View →</div>
+    </a>
+    <a class="repo-row" href="https://github.com/Shivi7566/entra-powershell-toolkit" target="_blank" rel="noopener">
+      <div class="repo-main">
+        <div class="repo-name">entra-powershell-toolkit</div>
+        <p class="repo-desc">PowerShell automation for Entra ID covering bulk provisioning, licensing, PIM, and device management, each script paired with a full written explanation.</p>
+        <div class="repo-topics"><span>powershell</span><span>automation</span><span>pim</span><span>iam</span></div>
+      </div>
+      <div class="repo-visit">View →</div>
+    </a>
+    <a class="repo-row" href="https://shivi7566.github.io" target="_blank" rel="noopener">
+      <div class="repo-main">
+        <div class="repo-name">Shivi7566.github.io</div>
+        <p class="repo-desc">My personal portfolio site, hosted on GitHub Pages.</p>
+        <div class="repo-topics"><span>portfolio</span></div>
+      </div>
+      <div class="repo-visit">View →</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Shivam Tiwari · Damoh, Madhya Pradesh, India · <a href="mailto:shivam782872@gmail.com">shivam782872@gmail.com</a> · <a href="https://linkedin.com/in/shivamtiwari78" target="_blank" rel="noopener">LinkedIn</a></p>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.section, .hero');
+  const railLinks = document.querySelectorAll('.rail a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        railLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -40% 0px' });
+
+  sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>

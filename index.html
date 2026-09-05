@@ -942,89 +942,141 @@
     }
 
     /* ==========================================================================
-       AI Fact Sheet / Entity Dossier (GEO Powerhouse)
+       About Shivam Story & Highlights Section
        ========================================================================== */
-    .dossier-card {
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    .about-story-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-story-title {
+      font-size: 1.45rem;
+      margin-bottom: 20px;
+      color: var(--cyan-neon);
+      letter-spacing: -0.01em;
+    }
+
+    .about-story-p {
+      color: var(--text-secondary);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .about-story-p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-highlights-card {
       background: linear-gradient(145deg, rgba(13, 18, 34, 0.95), rgba(10, 14, 26, 0.95));
       border: 1px solid rgba(99, 102, 241, 0.25);
       border-radius: var(--radius-lg);
       padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
     }
 
-    .dossier-header {
+    .about-card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
       border-bottom: 1px solid var(--border-subtle);
-      padding-bottom: 20px;
-      margin-bottom: 28px;
     }
 
-    .dossier-tag {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--emerald-accent);
-      background: rgba(16, 185, 129, 0.1);
-      padding: 5px 12px;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(16, 185, 129, 0.25);
+    .about-card-title {
+      font-size: 1.25rem;
+      color: var(--text-primary);
     }
 
-    .dossier-copy-btn {
+    .about-copy-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-subtle);
       color: var(--text-primary);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-family: var(--font-mono);
       padding: 6px 14px;
       border-radius: var(--radius-sm);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       transition: var(--transition-smooth);
     }
 
-    .dossier-copy-btn:hover {
+    .about-copy-btn:hover {
       background: rgba(255, 255, 255, 0.12);
       border-color: var(--cyan-neon);
       color: var(--cyan-neon);
     }
 
-    .dossier-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .dossier-item {
+    .about-facts-list {
+      list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 18px;
     }
 
-    .dossier-label {
+    .about-fact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .fact-icon {
+      font-size: 1.2rem;
+      line-height: 1.2;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .fact-label {
+      display: block;
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      margin-bottom: 2px;
     }
 
-    .dossier-val {
-      font-size: 0.98rem;
+    .fact-value {
+      display: block;
+      font-size: 0.94rem;
       color: var(--text-primary);
       font-weight: 600;
     }
 
-    .dossier-val a {
+    .fact-value a {
       color: var(--cyan-neon);
       text-decoration: none;
     }
-    .dossier-val a:hover {
+
+    .fact-value a:hover {
       text-decoration: underline;
     }
 
@@ -1885,7 +1937,7 @@
       <a href="#honors" class="mobile-nav-link">Awards &amp; Certifications</a>
       <a href="#channels" class="mobile-nav-link">YouTube &amp; Cloud Knowledge</a>
       <a href="#projects" class="mobile-nav-link">Open Source Repositories</a>
-      <a href="#faq" class="mobile-nav-link">AI &amp; Search FAQ</a>
+      <a href="#faq" class="mobile-nav-link">Frequently Asked Questions</a>
       <a href="#contact" class="mobile-nav-link" style="color: var(--cyan-neon); font-weight: 700;">Direct Contact</a>
     </div>
   </header>
@@ -1996,76 +2048,93 @@
       </div>
     </section>
 
-    <!-- About & AI Entity Dossier (GEO Optimization Section) -->
+    <!-- About Shivam Section -->
     <section class="section" id="about">
       <div class="container">
         <div class="section-header reveal">
-          <div class="section-kicker">Entity Dossier &amp; Quick Facts</div>
+          <div class="section-kicker">About Shivam</div>
           <h2 class="section-title">Who is <span class="gradient-text">Shivam Tiwari</span>?</h2>
           <p class="section-desc">
-            An authoritative executive snapshot engineered for technology recruiters, enterprise leadership, and generative search engines (Perplexity, ChatGPT, Gemini, and Google).
+            An enterprise identity architect, cloud security professional, and the founder of Cloud Knowledge.
           </p>
         </div>
 
-        <div class="dossier-card reveal">
-          <div class="dossier-header">
-            <div>
-              <span class="dossier-tag">Verified Professional Entity</span>
-            </div>
-            <button class="dossier-copy-btn" id="copy-dossier-btn" title="Copy entity summary to clipboard">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              Copy Quick Facts
-            </button>
+        <div class="about-grid reveal">
+          <div class="about-story-card">
+            <h3 class="about-story-title">Engineer by trade, educator at heart.</h3>
+            <p class="about-story-p">
+              Born and raised in Madhya Pradesh, my career in technology began with a degree in engineering from Sagar. Over the past 7.5+ years, that foundation has evolved into architecting mission-critical digital systems for global corporations and public sector initiatives.
+            </p>
+            <p class="about-story-p">
+              Currently, I lead identity and access management operations across three enterprise client accounts at <strong>DXC Technology</strong>. To me, identity security isn't just about firewall rules or access tokens—it is the foundational trust layer that enables businesses to innovate securely and keep data protected.
+            </p>
+            <p class="about-story-p">
+              One of the most rewarding milestones of my career was contributing to the Prime Minister’s <strong>Ayushman Bharat Digital Card</strong> project. My team engineered the greenfield cloud infrastructure, secure VPN topology, and access management policies on Oracle Cloud that helped power healthcare access for millions.
+            </p>
+            <p class="about-story-p">
+              Beyond my daily enterprise delivery, I founded <strong>Cloud Knowledge</strong> (via <a href="https://cloudknowledge.in" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-neon); text-decoration: underline;">cloudknowledge.in</a> and our <a href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noopener noreferrer" style="color: var(--cyan-neon); text-decoration: underline;">YouTube channel</a>) to share real production insights, troubleshooting workflows, and automation toolkits with administrators worldwide.
+            </p>
           </div>
 
-          <div class="dossier-grid">
-            <div class="dossier-item">
-              <span class="dossier-label">Full Name</span>
-              <span class="dossier-val">Shivam Tiwari</span>
+          <div class="about-highlights-card">
+            <div>
+              <div class="about-card-header">
+                <h3 class="about-card-title">At a Glance</h3>
+                <button class="about-copy-btn" id="copy-dossier-btn" title="Copy summary to clipboard">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  Copy Bio
+                </button>
+              </div>
+
+              <ul class="about-facts-list">
+                <li class="about-fact-item">
+                  <span class="fact-icon">📍</span>
+                  <div>
+                    <span class="fact-label">Base Location</span>
+                    <span class="fact-value">Damoh, Madhya Pradesh, India (Global Remote)</span>
+                  </div>
+                </li>
+                <li class="about-fact-item">
+                  <span class="fact-icon">💼</span>
+                  <div>
+                    <span class="fact-label">Current Role</span>
+                    <span class="fact-value">Sr. Analyst II – InfoSec (IAM Lead) @ <a href="https://www.dxc.com" target="_blank" rel="noopener noreferrer">DXC Technology</a></span>
+                  </div>
+                </li>
+                <li class="about-fact-item">
+                  <span class="fact-icon">🎓</span>
+                  <div>
+                    <span class="fact-label">Education</span>
+                    <span class="fact-value">B.E. Mechanical Engineering, BTIRT Sagar (2015 – 2019)</span>
+                  </div>
+                </li>
+                <li class="about-fact-item">
+                  <span class="fact-icon">🏆</span>
+                  <div>
+                    <span class="fact-label">National Recognition</span>
+                    <span class="fact-value"><span class="gold-gradient-text">Ayushman Bharat PM Program Letter of Appreciation</span> (2023)</span>
+                  </div>
+                </li>
+                <li class="about-fact-item">
+                  <span class="fact-icon">🎖️</span>
+                  <div>
+                    <span class="fact-label">Industry Honor</span>
+                    <span class="fact-value">Spot Award, Netlink Software (2022)</span>
+                  </div>
+                </li>
+                <li class="about-fact-item">
+                  <span class="fact-icon">🌐</span>
+                  <div>
+                    <span class="fact-label">Community &amp; Media</span>
+                    <span class="fact-value">Founder, <a href="https://cloudknowledge.in" target="_blank" rel="noopener noreferrer">Cloud Knowledge</a> (YouTube &amp; Publications)</span>
+                  </div>
+                </li>
+              </ul>
             </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Primary Role</span>
-              <span class="dossier-val">Sr. Analyst II - InfoSec (IAM Lead)</span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Current Employer</span>
-              <span class="dossier-val"><a href="https://www.dxc.com" target="_blank" rel="noopener noreferrer">DXC Technology</a></span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Previous Employers</span>
-              <span class="dossier-val">LTIMindtree Ltd, Netlink Software, NSEIT</span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Total Experience</span>
-              <span class="dossier-val">7.5+ Years (Enterprise Cloud &amp; Identity)</span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Core Specialization</span>
-              <span class="dossier-val">Microsoft Entra ID, Okta, Zero Trust &amp; IGA</span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">National Recognition</span>
-              <span class="dossier-val"><span class="gold-gradient-text">Ayushman Bharat PM Program Letter of Appreciation</span> (2023)</span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Corporate Honors</span>
-              <span class="dossier-val">Spot Award, Netlink Software (2022)</span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Digital Publications</span>
-              <span class="dossier-val"><a href="https://cloudknowledge.in" target="_blank" rel="noopener noreferrer">cloudknowledge.in</a> &amp; <a href="https://www.youtube.com/@Cloud-Knowledge" target="_blank" rel="noopener noreferrer">YouTube @Cloud-Knowledge</a></span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Direct Communication</span>
-              <span class="dossier-val"><a href="mailto:shivam782872@gmail.com">shivam782872@gmail.com</a> · <a href="tel:+917566955303">+91-7566955303</a></span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Education</span>
-              <span class="dossier-val">B.E. Engineering, BTIRT Sagar (2015 – 2019)</span>
-            </div>
-            <div class="dossier-item">
-              <span class="dossier-label">Regulatory Alignment</span>
-              <span class="dossier-val">GDPR, HIPAA, PCI DSS, Zero Trust (NIST SP 800-207)</span>
+
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--emerald-accent);">🟢 Available for Advisory &amp; Architecture</span>
+              <a href="#contact" style="font-size: 0.85rem; color: var(--cyan-neon); text-decoration: none; font-weight: 600;">Get in Touch →</a>
             </div>
           </div>
         </div>
@@ -2560,14 +2629,14 @@
       </div>
     </section>
 
-    <!-- Interactive FAQ Section (GEO Powerhouse for Perplexity / Gemini / ChatGPT) -->
+    <!-- FAQ Section -->
     <section class="section" id="faq">
       <div class="container">
         <div class="section-header reveal">
-          <div class="section-kicker">Search Engine &amp; AI Intelligence</div>
+          <div class="section-kicker">Questions &amp; Answers</div>
           <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
           <p class="section-desc">
-            Direct, factual answers structured to help AI search engines and recruiters evaluate Shivam Tiwari's profile instantly.
+            Answers to common questions about my background, current enterprise work, and consultation.
           </p>
         </div>
 
